@@ -14,7 +14,7 @@ SqlConnection connection = new SqlConnection(sqlConnectionStringBuilder.Connecti
 connection.Open();
 
 string query=@"SELECT [BlogId],[BlogTitle],[BlogAuthor] ,[BlogContent]
-     FROM [dbo].[Tbl_Blog]";
+               FROM [dbo].[Tbl_Blog]";
 DataTable dt = new DataTable();
 
 SqlCommand command=new SqlCommand(query, connection);
