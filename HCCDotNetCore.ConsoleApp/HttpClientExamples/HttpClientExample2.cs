@@ -37,7 +37,6 @@ namespace HCCDotNetCore.ConsoleApp.HttpClientExamples
             }
         }
 
-        public as
     }
 
 }

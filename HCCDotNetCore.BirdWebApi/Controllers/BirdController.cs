@@ -72,6 +72,5 @@ namespace HCCDotNetCore.BirdWebApi.Controllers
             return item;
         }
     
-        
     }
 }

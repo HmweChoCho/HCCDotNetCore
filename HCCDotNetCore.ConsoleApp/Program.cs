@@ -3,6 +3,7 @@ using HCCDotNetCore.ConsoleApp.AdoDotNetExamples;
 using HCCDotNetCore.ConsoleApp.DapperExamples;
 using HCCDotNetCore.ConsoleApp.EFCoreExamples;
 using HCCDotNetCore.ConsoleApp.HttpClientExamples;
+using HCCDotNetCore.ConsoleApp.RestClientExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -60,6 +61,9 @@ Console.ReadKey();
 //httpClientExample.Run();
 
 
-HttpClientExample httpClientExample = new HttpClientExample();
-httpClientExample.Run();
+//HttpClientExample httpClientExample = new HttpClientExample();
+//httpClientExample.Run();
+
+RestClientExample restClientExample = new RestClientExample();
+restClientExample.Run();
 Console.ReadKey();
