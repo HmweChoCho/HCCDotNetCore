@@ -3,6 +3,7 @@ using HCCDotNetCore.ConsoleApp.AdoDotNetExamples;
 using HCCDotNetCore.ConsoleApp.DapperExamples;
 using HCCDotNetCore.ConsoleApp.EFCoreExamples;
 using HCCDotNetCore.ConsoleApp.HttpClientExamples;
+using HCCDotNetCore.ConsoleApp.RefitExamples;
 using HCCDotNetCore.ConsoleApp.RestClientExamples;
 using System.Data;
 using System.Data.SqlClient;
@@ -57,13 +58,16 @@ Console.WriteLine("Hello, World!");
 Console.WriteLine("Waiting for api.....");
 Console.ReadKey();
 
-//HttpClientExample2  httpClientExample= new HttpClientExample2();
-//httpClientExample.Run();
+HttpClientExample2 httpClientExample2 = new HttpClientExample2();
+httpClientExample2.Run();
 
 
-//HttpClientExample httpClientExample = new HttpClientExample();
-//httpClientExample.Run();
+HttpClientExample httpClientExample = new HttpClientExample();
+httpClientExample.Run();
 
 RestClientExample restClientExample = new RestClientExample();
 restClientExample.Run();
+
+RefitExample refitExample = new RefitExample();
+refitExample.Run();
 Console.ReadKey();

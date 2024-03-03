@@ -19,7 +19,7 @@ namespace HCCDotNetCore.ConsoleApp.HttpClientExamples
             await Read();
             await Edit(4);
             await Create("test title", "test author", "test content");
-            await Update(5,"test title 5", "test author 5", "test content 5");
+            await Update(5, "test title 5", "test author 5", "test content 5");
             await Delete(4);
         }
         public async Task Read()
@@ -52,7 +52,7 @@ namespace HCCDotNetCore.ConsoleApp.HttpClientExamples
             {
                 string json = await response.Content.ReadAsStringAsync();
                 BlogModel? item = JsonConvert.DeserializeObject<BlogModel>(json)!;
-               
+
                 Console.WriteLine(item.BlogId);
                 Console.WriteLine(item.BlogTitle);
                 Console.WriteLine(item.BlogAuthor);
@@ -64,7 +64,7 @@ namespace HCCDotNetCore.ConsoleApp.HttpClientExamples
             }
         }
 
-        public async Task Create(string title,string author, string content)
+        public async Task Create(string title, string author, string content)
         {
             BlogModel blog = new BlogModel()
             {
@@ -72,16 +72,16 @@ namespace HCCDotNetCore.ConsoleApp.HttpClientExamples
                 BlogAuthor = author,
                 BlogContent = content
             };
-            string jsonBlog=JsonConvert.SerializeObject(blog);
+            string jsonBlog = JsonConvert.SerializeObject(blog);
             HttpContent httpContent = new StringContent(jsonBlog, Encoding.UTF8, mediaType: Application.Json);
-             
+
             string url = "https://localhost:7025/api/Blog";
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.PostAsync(url,httpContent);
+            HttpResponseMessage response = await client.PostAsync(url, httpContent);
             if (response.IsSuccessStatusCode)
             {
                 Console.Write(await response.Content.ReadAsStringAsync());
-               
+
             }
             else
             {
@@ -100,7 +100,7 @@ namespace HCCDotNetCore.ConsoleApp.HttpClientExamples
             string jsonBlog = JsonConvert.SerializeObject(blog);
             HttpContent httpContent = new StringContent(jsonBlog, Encoding.UTF8, mediaType: Application.Json);
 
-            string url =$"https://localhost:7025/api/Blog/{id}";
+            string url = $"https://localhost:7025/api/Blog/{id}";
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.PostAsync(url, httpContent);
             if (response.IsSuccessStatusCode)
