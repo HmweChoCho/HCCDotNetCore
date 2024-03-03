@@ -2,6 +2,7 @@
 using HCCDotNetCore.ConsoleApp.AdoDotNetExamples;
 using HCCDotNetCore.ConsoleApp.DapperExamples;
 using HCCDotNetCore.ConsoleApp.EFCoreExamples;
+using HCCDotNetCore.ConsoleApp.HttpClientExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -31,25 +32,34 @@ Console.WriteLine("Hello, World!");
 //    Console.WriteLine("Content...." + dr["BlogContent"]);
 //}
 
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-adoDotNetExample.Read();
-adoDotNetExample.Edit(1);
-adoDotNetExample.Create("title1", "author1", "test content");
-adoDotNetExample.Update(2, "title2", "author2", "test content2");
-adoDotNetExample.Delete(2);
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//adoDotNetExample.Read();
+//adoDotNetExample.Edit(1);
+//adoDotNetExample.Create("title1", "author1", "test content");
+//adoDotNetExample.Update(2, "title2", "author2", "test content2");
+//adoDotNetExample.Delete(2);
 
-DapperExample dapperExample = new DapperExample();
-dapperExample.Read();
-dapperExample.Edit(2);
-dapperExample.Create("title2", "author2", "content test 2");
-dapperExample.Update(3, "title3", "author3", "content test 3");
-dapperExample.Delete(1);
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Read();
+//dapperExample.Edit(2);
+//dapperExample.Create("title2", "author2", "content test 2");
+//dapperExample.Update(3, "title3", "author3", "content test 3");
+//dapperExample.Delete(1);
 
 
-EFCoreExample eFCoreExample = new EFCoreExample();
-eFCoreExample.Read();
-eFCoreExample.Edit(4);
-eFCoreExample.Create("title4", "author4", "content test 4");
-eFCoreExample.Update(4, "title test 4", "author test 4", "content test 4");
-eFCoreExample.Delete(3);
+//EFCoreExample eFCoreExample = new EFCoreExample();
+//eFCoreExample.Read();
+//eFCoreExample.Edit(4);
+//eFCoreExample.Create("title4", "author4", "content test 4");
+//eFCoreExample.Update(4, "title test 4", "author test 4", "content test 4");
+//eFCoreExample.Delete(3);
+Console.WriteLine("Waiting for api.....");
+Console.ReadKey();
+
+//HttpClientExample2  httpClientExample= new HttpClientExample2();
+//httpClientExample.Run();
+
+
+HttpClientExample httpClientExample = new HttpClientExample();
+httpClientExample.Run();
 Console.ReadKey();
