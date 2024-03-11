@@ -3,7 +3,7 @@ let _blogId = "";
 runBlog();
 
 function runBlog() {
-  // readBlog();
+  readBlog();
   //   createBlog("test title", "test author", "test content");
   //   readBlog();
   //   editBlog("6e0077aa-a26c-463a-a9a0-95f121febb25");
@@ -27,9 +27,10 @@ function readBlog() {
   $("#tbDataTable").html("");
   let htmlRow = "";
   let lstBlogs = getBlogs();
+  console.log(lstBlogs);
   for (let i = 0; i < lstBlogs.length; i++) {
     const item = lstBlogs[i];
-    // console.log(item.Id);
+
     // console.log(item.Title);
     // console.log(item.Author);
     // console.log(item.Content);
@@ -48,8 +49,8 @@ function readBlog() {
                     <td>${item.Author}</td>
                     <td>${item.Content}</td>
                 </tr>`;
-    $("#tbDataTable").html(htmlRow);
   }
+  $("#tbDataTable").html(htmlRow);
 }
 
 function editBlog(id) {
@@ -153,36 +154,47 @@ function setLocalStorage(blogs) {
   localStorage.setItem(tblBlog, jsonStr);
 }
 
-$("#btnSave").click(function () {
+$("#btnSave").click(function (e) {
+  e.preventDefault();
+  var l = Ladda.create(this);
+  l.start();
   let title = $("#Title").val();
   let author = $("#Author").val();
   let content = $("#Content").val();
 
   if (_blogId == null || _blogId == "") {
-    Notiflix.Loading.circle();
+    // Notiflix.Loading.circle();
     setTimeout(() => {
       createBlog(title, author, content);
-      Notiflix.Loading.remove();
+      // Notiflix.Loading.remove();
       successMessage("Saving successful....");
+      l.stop();
+      $("#Title").val("");
+      $("#Author").val("");
+      $("#Content").val("");
+
+      $("#Title").focus();
+
+      readBlog();
     }, 3000);
   } else {
-    Notiflix.Loading.circle();
+    // Notiflix.Loading.circle();
     setTimeout(() => {
       updateBlog(_blogId, title, author, content);
-      Notiflix.Loading.remove();
+      // Notiflix.Loading.remove();
       successMessage("Update successful....");
+      l.stop();
+      $("#Title").val("");
+      $("#Author").val("");
+      $("#Content").val("");
+
+      $("#Title").focus();
+
+      readBlog();
     }, 3000);
 
     _blogId = "";
   }
-
-  $("#Title").val("");
-  $("#Author").val("");
-  $("#Content").val("");
-
-  $("#Title").focus();
-
-  readBlog();
 });
 
 function successMessage(message) {
