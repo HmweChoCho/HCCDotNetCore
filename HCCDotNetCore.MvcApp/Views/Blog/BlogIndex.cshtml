@@ -1,0 +1,30 @@
+﻿@model List<BlogModel>
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewData["Title"] = "Blog Page";
+    int count = 0;
+}
+<h1>Blog</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (BlogModel item in Model)
+    {
+        <tr>
+            <th scope="row">@{ ++count;}</th>
+            <td>@item.BlogTitle</td>
+            <td>@item.BlogAuthor</td>
+            <td>@item.BlogContent</td>
+        </tr>
+    }
+
+    </tbody>
+</table>
