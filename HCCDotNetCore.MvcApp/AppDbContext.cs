@@ -10,7 +10,7 @@ using HCCDotNetCore.MvcApp.Models;
 
 namespace HCCDotNetCore.MvcApp
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
