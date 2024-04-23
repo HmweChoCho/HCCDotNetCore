@@ -1,8 +1,20 @@
+using HCCDotNetCore.MvcApp;
+using HCCDotNetCore.Shared;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddJsonOptions(opt => opt.JsonSerializerOptions.PropertyNamingPolicy = null);
 
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+}, ServiceLifetime.Transient, ServiceLifetime.Transient
+);
+
+builder.Services.AddScoped(n => new AdoDotNetService(builder.Configuration.GetConnectionString("DbConnection")));
+builder.Services.AddScoped(n => new DapperService(builder.Configuration.GetConnectionString("DbConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

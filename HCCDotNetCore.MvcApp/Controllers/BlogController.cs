@@ -6,10 +6,9 @@ namespace HCCDotNetCore.MvcApp.Controllers
     public class BlogController : Controller
     {
         private readonly AppDbContext _context;
-
-        public BlogController()
+        public BlogController(AppDbContext context)
         {
-            _context = new AppDbContext();
+            _context = context;
         }
 
         [ActionName("Index")]
